@@ -127,7 +127,7 @@
 
   /////////////////////////////////////
 
-  var wordBlank = document.querySelector(".word-blanks");
+var wordBlank = document.querySelector(".word-blanks");
 var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
 var timerElement = document.querySelector(".timer-count");
@@ -157,7 +157,7 @@ function init() {
 // The startGame function is called when the start button is clicked
 function startGame() {
   isWin = false;
-  timerCount = 10;
+  timerCount = 75;
   // Prevents start button from being clicked when round is in progress
   startButton.disabled = true;
   renderBlanks()
@@ -202,6 +202,7 @@ function startTimer() {
     }
   }, 1000);
 }
+startButton.addEventListener("click", startGame);
 
 // Creates blanks on screen
 function renderBlanks() {
@@ -299,7 +300,7 @@ document.addEventListener("keydown", function(event) {
 });
 
 // Attach event listener to start button to call startGame function on click
-startButton.addEventListener("click", startGame);
+
 
 // Calls init() so that it fires when page opened
 init();
