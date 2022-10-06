@@ -1,32 +1,3 @@
-// // variables to keep track of quiz state
-//     // currentQuestion
-//     // time
-//     // timerId
-
-// // variables to reference DOM elements
-// var questionsEl = document.getElementById('questions');
-
-
-
-
-// /// FUNCTION TO GET/SHOW EACH QUESTION ///
-// function getQuestion() {
-//   // get current question object from array
-
-//   // update title with current question
-
-//   // clear out any old question choices
-
-//   // loop over choices
-//     // FOR {
-//       // create new button for each choice
-  
-//       // display on the page
-      
-//     // } 
-// }
-
-
 // /// FUNCTION TO END THE QUIZ ///
 // function quizEnd() {
 //   // stop timer
@@ -89,35 +60,6 @@
 
   /////////////////////////////////////
 
-var wordBlank = document.querySelector(".word-blanks");
-var win = document.querySelector(".win");
-var lose = document.querySelector(".lose");
-var timerElement = document.querySelector(".timer-count");
-var startButton = document.querySelector(".start-button");
-var nextQuestionButton = document.querySelector(".next-button");
-
-var chosenWord = "";
-var numBlanks = 0;
-var winCounter = 0;
-var loseCounter = 0;
-var isWin = false;
-var timer;
-var timerCount;
-
-// Arrays used to create blanks and letters on screen
-var lettersInChosenWord = [];
-var blanksLetters = [];
-
-// Array of words the user will guess
-var words = ["variable","array", "modulus", "object", "function", "string", "boolean"];
-
-// // The init function is called when the page loads 
-// function init() {
-//   getWins();
-//   getlosses();
-// } 
-
-
 // VARIABLES
 var answerA = document.querySelector("#answer-a");
 var answerB = document.querySelector("#answer-b");
@@ -136,8 +78,11 @@ var answerOfF = answerF.textContent;
 var answerOfG = answerG.textContent;
 var answerOfH = answerH.textContent;
 var selectedAnswer;
-
-
+var timer;
+var timerCount;
+var timerElement = document.querySelector(".timer-count");
+var startButton = document.querySelector(".start-button");
+var nextQuestionButton = document.querySelector(".next-button");
 
 // FUNCTION TO START THE QUIZ
 function startQuiz() {
@@ -151,79 +96,47 @@ function startQuiz() {
   startButton.disabled = true;
   startTimer();
 }
-
-// FUNCTION FOR CLICKING A QUESTION
-
+// FUNCTION FOR CLICKING AN ANSWER
 function storeAnswer() {
   console.log(selectedAnswer);
   if (selectedAnswer === answerOfB) {
   document.getElementById("correct").style.display = "block";
   } else {
     document.getElementById("not-correct").style.display = "block";
+    console.log(timerCount);
+    timerCount = timerCount - 10;
+    console.log(timerCount);
+    timerElement.textContent = timerCount;
   }
   document.getElementById("hide-next-button").style.display = "block";
 }
-
+// FUNCTION FOR CLICKING SECOND ANSWER
 function storeNextAnswer() {
   console.log(selectedAnswer);
   if (selectedAnswer === answerOfE) {
   document.getElementById("correct").style.display = "block";
   } else {
     document.getElementById("not-correct").style.display = "block";
+    console.log(timerCount);
+    timerCount = timerCount - 10;
+    console.log(timerCount);
+    timerElement.textContent = timerCount;
   }
   document.getElementById("hide-next-button").style.display = "block";
 }
-
+// FUNCTION FOR WHEN THE NEXT QUESTION BUTTON IS CLICKED
 function nextQuestion() {
   document.getElementById("questions-set1").style.display = "none";
   document.getElementById("questions-set2").style.display = "block";
   document.getElementById("correct").style.display = "none";
   document.getElementById("not-correct").style.display = "none";
 }
-
-
-//   // flash right/wrong feedback on page for a short period of time
-
-//   // move to next question
-
-//   // check if we've run out of questions
-//     // if so, end the quiz
-//     // else, get the next question
-// }
-
-
-// The winGame function is called when the win condition is met
-// function winGame() {
-//   wordBlank.textContent = "YOU WON!!!🏆 ";
-//   winCounter++
-//   startButton.disabled = false;
-//   setWins()
-// }
-
-// // The loseGame function is called when timer reaches 0
-// function loseGame() {
-//   wordBlank.textContent = "GAME OVER";
-//   loseCounter++
-//   startButton.disabled = false;
-//   setLosses()
-// }
-
-// The setTimer function starts and stops the timer and triggers winGame() and loseGame()
+// TIMER FUNCTION
 function startTimer() {
-  // Sets timer
   timer = setInterval(function() {
     timerCount--;
     timerElement.textContent = timerCount;
-    if (timerCount >= 0) {
-      // Tests if win condition is met
-      if (isWin && timerCount > 0) {
-        // Clears interval and stops timer
-        clearInterval(timer);
-      }
-    }
-    // Tests if time has run out
     if (timerCount === 0) {
-      // Clears interval
       clearInterval(timer);
       loseGame();
     }
@@ -376,19 +289,6 @@ answerH.addEventListener("click", function () {
   document.getElementById("answer-g").style.color = "#000";
 });
 
-
-// Updates win count on screen and sets win count to client storage
-// function setWins() {
-//   win.textContent = winCounter;
-//   localStorage.setItem("winCount", winCounter);
-// }
-
-// // Updates lose count on screen and sets lose count to client storage
-// function setLosses() {
-//   lose.textContent = loseCounter;
-//   localStorage.setItem("loseCount", loseCounter);
-// }
-
 // // These functions are used by init
 // function getWins() {
 //   // Get stored value from client storage, if it exists
@@ -402,42 +302,6 @@ answerH.addEventListener("click", function () {
 //   }
 //   //Render win count to page
 //   win.textContent = winCounter;
-// }
-
-// function getlosses() {
-//   var storedLosses = localStorage.getItem("loseCount");
-//   if (storedLosses === null) {
-//     loseCounter = 0;
-//   } else {
-//     loseCounter = storedLosses;
-//   }
-//   lose.textContent = loseCounter;
-// }
-
-// function checkWin() {
-//   // If the word equals the blankLetters array when converted to string, set isWin to true
-//   if (chosenWord === blanksLetters.join("")) {
-//     // This value is used in the timer function to test if win condition is met
-//     isWin = true;
-//   }
-// }
-
-// // Tests if guessed letter is in word and renders it to the screen.
-// function checkLetters(letter) {
-//   var letterInWord = false;
-//   for (var i = 0; i < numBlanks; i++) {
-//     if (chosenWord[i] === letter) {
-//       letterInWord = true;
-//     }
-//   }
-//   if (letterInWord) {
-//     for (var j = 0; j < numBlanks; j++) {
-//       if (chosenWord[j] === letter) {
-//         blanksLetters[j] = letter;
-//       }
-//     }
-//     wordBlank.textContent = blanksLetters.join(" ");
-//   }
 // }
 
 // // Attach event listener to document to listen for key event
