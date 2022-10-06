@@ -37,6 +37,22 @@
     height: 100px;
     line-height: 50px;
   }
+
+  .answers-button2 {
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+    height: 100px;
+    line-height: 50px;
+  }
+
+  .next-button {
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+    height: 100px;
+    line-height: 50px;
+  }
   
   .win-loss-container {
     display: flex;
@@ -104,6 +120,16 @@
     width: 55vw;
     height: 700px;
   }
+
+  #questions-set2 {
+    display: none;
+    width: 55vw;
+    height: 700px;
+  }
+
+  #hide-next-button {
+    display: none;
+  }
   
   .results {
     width: 30vw;
@@ -132,7 +158,7 @@
 
   .large-font2 {
     font-family: 'Bungee Spice', cursive;
-    font-size: 7em;
+    font-size: 5em;
     text-align:center;
   }
 

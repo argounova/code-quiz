@@ -94,6 +94,7 @@ var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
 var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
+var nextQuestionButton = document.querySelector(".next-button");
 
 var chosenWord = "";
 var numBlanks = 0;
@@ -122,11 +123,18 @@ var answerA = document.querySelector("#answer-a");
 var answerB = document.querySelector("#answer-b");
 var answerC = document.querySelector("#answer-c");
 var answerD = document.querySelector("#answer-d");
-// var answerButton = document.querySelector(".answers-button");
+var answerE = document.querySelector("#answer-e");
+var answerF = document.querySelector("#answer-f");
+var answerG = document.querySelector("#answer-g");
+var answerH = document.querySelector("#answer-h");
 var answerOfA = answerA.textContent;
 var answerOfB = answerB.textContent;
 var answerOfC = answerC.textContent;
 var answerOfD = answerD.textContent;
+var answerOfE = answerE.textContent;
+var answerOfF = answerF.textContent;
+var answerOfG = answerG.textContent;
+var answerOfH = answerH.textContent;
 var selectedAnswer;
 
 
@@ -148,29 +156,31 @@ function startQuiz() {
 
 function storeAnswer() {
   console.log(selectedAnswer);
-  if (selectedAnswer === answerOfA) {
+  if (selectedAnswer === answerOfB) {
   document.getElementById("correct").style.display = "block";
   } else {
     document.getElementById("not-correct").style.display = "block";
   }
+  document.getElementById("hide-next-button").style.display = "block";
 }
-// function questionClick(event) {
 
-//   // if the clicked element is not a choice button, do nothing.
-//   if (something) {
+function storeNextAnswer() {
+  console.log(selectedAnswer);
+  if (selectedAnswer === answerOfE) {
+  document.getElementById("correct").style.display = "block";
+  } else {
+    document.getElementById("not-correct").style.display = "block";
+  }
+  document.getElementById("hide-next-button").style.display = "block";
+}
 
-//   }
+function nextQuestion() {
+  document.getElementById("questions-set1").style.display = "none";
+  document.getElementById("questions-set2").style.display = "block";
+  document.getElementById("correct").style.display = "none";
+  document.getElementById("not-correct").style.display = "none";
+}
 
-//   if (something) {
-//   // check if user guessed wrong
-//     // penalize time
-
-//     // display new time on page
-
-//     // give them feedback, letting them know it's wrong
-//   } else {
-//     // give them feedback, letting them know it's right
-//   }
 
 //   // flash right/wrong feedback on page for a short period of time
 
@@ -219,8 +229,13 @@ function startTimer() {
     }
   }, 1000);
 }
+// Click event to start the quiz and run the function
 startButton.addEventListener("click", startQuiz);
 
+// Click event to proceed to the next question
+nextQuestionButton.addEventListener("click", nextQuestion);
+
+// Events that happen when the user selects an answer by clicking a button
 answerA.addEventListener("click", function () {
   selectedAnswer = answerA.textContent;
   localStorage.setItem("answer", selectedAnswer);
@@ -288,6 +303,77 @@ answerD.addEventListener("click", function () {
   document.getElementById("answer-c").style.background = "#4d4d4d";
   document.getElementById("answer-c").style.fontFamily = "serif";
   document.getElementById("answer-c").style.color = "#000";
+});
+//////////////////////////
+
+// Events that happen when the user selects an answer by clicking a button
+  answerE.addEventListener("click", function () {
+  selectedAnswer = answerE.textContent;
+  localStorage.setItem("answer", selectedAnswer);
+  storeNextAnswer();
+  answerF.disabled = true;
+  document.getElementById("answer-f").style.background = "#4d4d4d";
+  document.getElementById("answer-f").style.fontFamily = "serif";
+  document.getElementById("answer-f").style.color = "#000";
+  answerG.disabled = true;
+  document.getElementById("answer-g").style.background = "#4d4d4d";
+  document.getElementById("answer-g").style.fontFamily = "serif";
+  document.getElementById("answer-g").style.color = "#000";
+  answerH.disabled = true;
+  document.getElementById("answer-h").style.background = "#4d4d4d";
+  document.getElementById("answer-h").style.fontFamily = "serif";
+  document.getElementById("answer-h").style.color = "#000";
+});
+  answerF.addEventListener("click", function () {
+  selectedAnswer = answerF.textContent;
+  localStorage.setItem("answer", selectedAnswer);
+  storeNextAnswer();
+  answerE.disabled = true;
+  document.getElementById("answer-e").style.background = "#4d4d4d";
+  document.getElementById("answer-e").style.fontFamily = "serif";
+  document.getElementById("answer-e").style.color = "#000";
+  answerG.disabled = true;
+  document.getElementById("answer-g").style.background = "#4d4d4d";
+  document.getElementById("answer-g").style.fontFamily = "serif";
+  document.getElementById("answer-g").style.color = "#000";
+  answerH.disabled = true;
+  document.getElementById("answer-h").style.background = "#4d4d4d";
+  document.getElementById("answer-h").style.fontFamily = "serif";
+  document.getElementById("answer-h").style.color = "#000";
+});
+answerG.addEventListener("click", function () {
+  selectedAnswer = answerG.textContent;
+  localStorage.setItem("answer", selectedAnswer);
+  storeNextAnswer();
+  answerE.disabled = true;
+  document.getElementById("answer-e").style.background = "#4d4d4d";
+  document.getElementById("answer-e").style.fontFamily = "serif";
+  document.getElementById("answer-e").style.color = "#000";
+  answerF.disabled = true;
+  document.getElementById("answer-f").style.background = "#4d4d4d";
+  document.getElementById("answer-f").style.fontFamily = "serif";
+  document.getElementById("answer-f").style.color = "#000";
+  answerH.disabled = true;
+  document.getElementById("answer-h").style.background = "#4d4d4d";
+  document.getElementById("answer-h").style.fontFamily = "serif";
+  document.getElementById("answer-h").style.color = "#000";
+});
+answerH.addEventListener("click", function () {
+  selectedAnswer = answerH.textContent;
+  localStorage.setItem("answer", selectedAnswer);
+  storeNextAnswer();
+  answerE.disabled = true;
+  document.getElementById("answer-e").style.background = "#4d4d4d";
+  document.getElementById("answer-e").style.fontFamily = "serif";
+  document.getElementById("answer-e").style.color = "#000";
+  answerF.disabled = true;
+  document.getElementById("answer-f").style.background = "#4d4d4d";
+  document.getElementById("answer-f").style.fontFamily = "serif";
+  document.getElementById("answer-f").style.color = "#000";
+  answerG.disabled = true;
+  document.getElementById("answer-g").style.background = "#4d4d4d";
+  document.getElementById("answer-g").style.fontFamily = "serif";
+  document.getElementById("answer-g").style.color = "#000";
 });
 
 
