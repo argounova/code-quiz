@@ -85,6 +85,14 @@
     border-radius: 8px;
   }
 
+  #correct {
+    display: none;
+  }
+
+  #not-correct{
+    display: none;
+  }
+
   #start {
     display: block;
     width: 55vw;
