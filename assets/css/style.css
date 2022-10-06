@@ -9,19 +9,38 @@
     flex-direction: column;
     min-height: 100vh;
     justify-content: flex-start;
-    background: #261914;
+    background: #4D4D4D;
   }
-  
+
   .reset-button {
+    display: flex;
+    justify-content: center;
     font-size: 16px;
     height: 30px;
     line-height: 8px;
     margin-top: 20px;
   }
+
+  .start-button {
+    display: flex;
+    justify-content: center;
+    font-size: 72px;
+    height: 200px;
+    width: 800px;
+    line-height: 150px;
+  }
+
+  .answers-button {
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+    height: 100px;
+    line-height: 14px;
+  }
   
   .win-loss-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 16px;
   }
   
@@ -34,8 +53,9 @@
     font-size: 2em;
     letter-spacing: 0.21px;
     line-height: 16px;
-    max-width: 255px;
+    max-width: 500px;
     padding: 20px 52px;
+    margin: 0 auto;
     text-align: center;
     transition-duration: 0.15s;
     transition-property: background-color;
@@ -46,9 +66,9 @@
   header {
     padding: 40px;
     text-align: center;
-    background: #261914;
+    background: #4D4D4D;
     color: #fff;
-    border-bottom:30px #47342D;
+    border-bottom: 30px solid #000;
   }
   
   main {
@@ -64,15 +84,22 @@
     background-color: white;
     border-radius: 8px;
   }
-  
-  .word-guess {
+
+  #start {
+    display: block;
     width: 55vw;
-    height: 400px;
+    height: 1000px;
+  }
+  
+  #questions-set1 {
+    display: none;
+    width: 55vw;
+    height: 1000px;
   }
   
   .results {
     width: 30vw;
-    height: 400px;
+    height: 1000px;
   }
   
   .card {
@@ -92,6 +119,12 @@
   .large-font {
     font-family: 'Bungee Spice', cursive;
     font-size: 3.5em;
+    text-align:center;
+  }
+
+  .large-font2 {
+    font-family: 'Bungee Spice', cursive;
+    font-size: 7em;
     text-align:center;
   }
 
@@ -138,8 +171,9 @@
     }
   
     .reset-button {
-      font-size: 12px;
-      width: 20ox;
+      font-size: 38px;
+      height: 100px;
+      width: 300px;
       
     }
   

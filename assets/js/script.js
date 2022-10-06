@@ -7,18 +7,7 @@
 // var questionsEl = document.getElementById('questions');
 
 
-// /// FUNCTION TO START THE QUIZ
-// function startQuiz() {
-//   // hide start screen 
-  
-//   // un-hide questions section
 
-//   // start timer
-
-//   // show starting time
-
-//   getQuestion();
-// }
 
 // /// FUNCTION TO GET/SHOW EACH QUESTION ///
 // function getQuestion() {
@@ -152,17 +141,26 @@ var words = ["variable","array", "modulus", "object", "function", "string", "boo
 function init() {
   getWins();
   getlosses();
-}
+} 
 
-// The startGame function is called when the start button is clicked
-function startGame() {
-  isWin = false;
+
+//   // show starting time
+
+//   getQuestion();
+
+// FUNCTION TO START THE QUIZ
+function startQuiz() {
+  // hide start screen
+  document.getElementById("start").style.display = "none";
+  // un-hide questions section
+  document.getElementById("questions-set1").style.display = "block";
+  // start timer
   timerCount = 75;
   // Prevents start button from being clicked when round is in progress
   startButton.disabled = true;
-  renderBlanks()
-  startTimer()
+  startTimer();
 }
+
 
 // The winGame function is called when the win condition is met
 function winGame() {
@@ -202,22 +200,7 @@ function startTimer() {
     }
   }, 1000);
 }
-startButton.addEventListener("click", startGame);
-
-// Creates blanks on screen
-function renderBlanks() {
-  // Randomly picks word from words array
-  chosenWord = words[Math.floor(Math.random() * words.length)];
-  lettersInChosenWord = chosenWord.split("");
-  numBlanks = lettersInChosenWord.length;
-  blanksLetters = []
-  // Uses loop to push blanks to blankLetters array
-  for (var i = 0; i < numBlanks; i++) {
-    blanksLetters.push("_");
-  }
-  // Converts blankLetters array into a string and renders it on the screen
-  wordBlank.textContent = blanksLetters.join(" ")
-}
+startButton.addEventListener("click", startQuiz);
 
 // Updates win count on screen and sets win count to client storage
 function setWins() {
