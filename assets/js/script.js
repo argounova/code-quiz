@@ -26,33 +26,6 @@
 //     // } 
 // }
 
-// /// FUNCTION FOR CLICKING A QUESTION ///
-// function questionClick(event) {
-
-//   // if the clicked element is not a choice button, do nothing.
-//   if (something) {
-
-//   }
-
-//   if (something) {
-//   // check if user guessed wrong
-//     // penalize time
-
-//     // display new time on page
-
-//     // give them feedback, letting them know it's wrong
-//   } else {
-//     // give them feedback, letting them know it's right
-//   }
-
-//   // flash right/wrong feedback on page for a short period of time
-
-//   // move to next question
-
-//   // check if we've run out of questions
-//     // if so, end the quiz
-//     // else, get the next question
-// }
 
 // /// FUNCTION TO END THE QUIZ ///
 // function quizEnd() {
@@ -144,9 +117,14 @@ function init() {
 } 
 
 
-//   // show starting time
+// VARIABLES
+var answerA = document.querySelector("#answer-a");
+var answerB = document.querySelector("#answer-b");
+var answerC = document.querySelector("#answer-c");
+var answerD = document.querySelector("#answer-d");
+var selectedAnswer;
 
-//   getQuestion();
+
 
 // FUNCTION TO START THE QUIZ
 function startQuiz() {
@@ -160,6 +138,41 @@ function startQuiz() {
   startButton.disabled = true;
   startTimer();
 }
+
+// FUNCTION FOR CLICKING A QUESTION
+
+function storeAnswer() {
+  console.log(answerA.textContent);
+  selectedAnswer = answerA.textContent;
+  console.log(selectedAnswer);
+  localStorage.setItem("answer", selectedAnswer);
+}
+// function questionClick(event) {
+
+//   // if the clicked element is not a choice button, do nothing.
+//   if (something) {
+
+//   }
+
+//   if (something) {
+//   // check if user guessed wrong
+//     // penalize time
+
+//     // display new time on page
+
+//     // give them feedback, letting them know it's wrong
+//   } else {
+//     // give them feedback, letting them know it's right
+//   }
+
+//   // flash right/wrong feedback on page for a short period of time
+
+//   // move to next question
+
+//   // check if we've run out of questions
+//     // if so, end the quiz
+//     // else, get the next question
+// }
 
 
 // The winGame function is called when the win condition is met
@@ -201,6 +214,8 @@ function startTimer() {
   }, 1000);
 }
 startButton.addEventListener("click", startQuiz);
+
+answerA.addEventListener("click", storeAnswer);
 
 // Updates win count on screen and sets win count to client storage
 function setWins() {
