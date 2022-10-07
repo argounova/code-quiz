@@ -1,65 +1,3 @@
-// /// FUNCTION TO END THE QUIZ ///
-// function quizEnd() {
-//   // stop timer
-
-//   // show end screen
-
-//   // show final score
-
-//   // hide questions section
-// }
-
-// /// FUNCTION FOR UPDATING THE TIME ///
-// function clockTick() {
-//   // update time
-
-//   // check if user ran out of time
-// }
-
-// function saveHighscore() {
-//   // get value of input box - for initials
-
-//   // make sure value wasn't empty
-//     // get saved scores from localstorage, or if not any, set to empty array
-
-//     // format new score object for current user
-
-//     // save to localstorage
-
-//     // redirect to next page
-// }
-
-// /// CLICK EVENTS ///
-//   // user clicks button to submit initials
-
-//   // user clicks button to start quiz
-
-//   // user clicks on element containing choices
-
-// function printHighscores() {
-//     // either get scores from localstorage or set to empty array
-  
-//     // sort highscores by score property in descending order
-  
-//     // loop through scores
-//       // create li tag for each high score
-  
-//       // display on page
-//   }
-  
-//   /// FUNCTION TO CLEAR SCORES ///
-//   function clearHighscores() {
-//     // remove an item from local storage
-//     // reload the page
-//   }
-  
-//   /// CLICK EVENT TO RUN THE CLEAR SCORES FUNCTION ///
-  
-//   // run function when page loads
-//   printHighscores();
-
-  /////////////////////////////////////
-
 // VARIABLES
 var answerA = document.querySelector("#answer-a");
 var answerB = document.querySelector("#answer-b");
@@ -84,19 +22,12 @@ var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
 var nextQuestionButton = document.querySelector(".next-button");
 var submitButton = document.querySelector("#submit");
-// var initialsInput = document.querySelector("")
-
 
 // FUNCTION TO START THE QUIZ
 function startQuiz() {
-  // hide start screen
   document.getElementById("start").style.display = "none";
-  // un-hide questions section
   document.getElementById("questions-set1").style.display = "block";
-  // start timer
-  timerCount = 75;
-  // Prevents start button from being clicked when round is in progress
-  startButton.disabled = true;
+  timerCount = 20;
   startTimer();
 }
 // FUNCTION FOR CLICKING AN ANSWER
@@ -107,7 +38,7 @@ function storeAnswer() {
   } else {
     document.getElementById("not-correct").style.display = "block";
     console.log(timerCount);
-    timerCount = timerCount - 10;
+    timerCount = timerCount - 5;
     console.log(timerCount);
     timerElement.textContent = timerCount;
   }
@@ -121,7 +52,7 @@ function storeNextAnswer() {
   } else {
     document.getElementById("not-correct").style.display = "block";
     console.log(timerCount);
-    timerCount = timerCount - 10;
+    timerCount = timerCount - 5;
     console.log(timerCount);
     timerElement.textContent = timerCount;
   }
@@ -143,16 +74,20 @@ function startTimer() {
     timerCount--;
     timerElement.textContent = timerCount;
     if (timerCount === 0) {
-      clearInterval(timer);
-      loseGame();
+      // clearInterval(timer);
+      // gameOver();
     }
   }, 1000);
 }
+// GAME OVER FUNCTION IF TIME EXPIRES
+// function gameOver () {
+
+// }
+
 // STOP TIMER
 function stopTimer() {
   clearInterval(timer);
 }
-
 // FUNCTION TO SUBMIT INITIALS
 function submitInitials() {
   var initials = document.querySelector("#initials").value;
@@ -160,7 +95,8 @@ function submitInitials() {
   localStorage.setItem("initials", initials);
   document.getElementById("questions-set2").style.display = "none";
   document.getElementById("high-scores").style.display = "block";
-  var score = timerCount*888;
+  var score = timerCount*88888;
+  localStorage.setItem("high score", score);
   var x = document.createElement("LI");
   var t = document.createTextNode(initials + ":  " + score);
   x.appendChild(t);
