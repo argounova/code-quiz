@@ -1,80 +1,73 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-        <link rel="stylesheet" href="./assets/css/style.css"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
-        <title>Code Quiz</title>
-    </head>
-    <body>
-        <header>
-            <div class= "large-font">Coding Quiz Challenge</div>
-            <div class= "medium-font">Try to answer the following code related questions within the time limit.</div>
-            <div class= "medium-font">Keep in mind that incorrect answers will penalize your score/time by ten seconds!</div>
-            
-          </header>
-      
-          <main>
-            <section>
-              <div id="start" class="card">
-                <p class="large-font2">R E A D Y ?</p>
-                <button class="start-button">Start</button>
-              </div>
-              <div id="questions-set1" class="card">
-                <p class="large-font">Who will win the Bathurst 1000?</p>
-                <button id="answer-a" class="answers-button">Van Gisbergen</button>
-                <button id="answer-b" class="answers-button">Lowndes</button>
-                <button id="answer-c" class="answers-button">Davison</button>
-                <button id="answer-d" class="answers-button">Waters</button>
-              </div>
-              <div id="questions-set2" class="card">
-                <p class="large-font">Who will win the Supercars Championship?</p>
-                <button id="answer-e" class="answers-button2">Van Gisbergen</button>
-                <button id="answer-f" class="answers-button2">Lowndes</button>
-                <button id="answer-g" class="answers-button2">Davison</button>
-                <button id="answer-h" class="answers-button2">Waters</button>
-              </div>
-              <div id="high-scores" class="card">
-                <p class="large-font">HIGH SCORES</p>
-                <ol id="scores-list">
-                </ol>
-              </div>
-            </section>
-      
-            <section>
-              <div class="card results">
-                <!-- <button class="reset-button">Reset Score</button> -->
-                <div class = "win-loss-container">
-                <div>
-                <!-- <h2>Wins: <span class="win">0 </span></h2>
-                <h2>Losses: <span class="lose">0</span></h2> -->
-              </div>
-              </div>
-                <div class= "card timer">
-                  <div class = "timer-text">
-                  <div class="large-font timer-count">20</div>
-                  <h3>seconds remaining</h3>
-                </div>
-              <div>
-                <p id="correct" class="large-font">Correct!</p>
-                <p id="not-correct" class="large-font">Not Correct</p>
-              </div>
-              <button id="hide-next-button" class="next-button">Next Question</button>
-              <form id="form">
-                <label for="initials">Enter Your Initials:</label><br>
-                <input type="text" id="initials" name="initials"><br>
-              </form>
-              <button id="submit" class="next-button">S U B M I T</button>
-                </div>
-              </div>
-            </section>
-          </main>
-
-        <script src="./assets/js/script.js"></script>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+    <title>Code Quiz</title>
+  </head>
+  <body>
+    <header>
+      <div class= "large-font">Coding Quiz Challenge</div>
+      <div class= "medium-font">Try to answer the following code related questions within the time limit.</div>
+      <div class= "medium-font">Keep in mind that incorrect answers will penalize your score/time by ten seconds!</div>
+    </header>  
+    <main>
+      <section>
+        <div id="start" class="card">
+          <p class="large-font2">R E A D Y ?</p>
+          <button class="start-button">Start</button>
+        </div>
+        <div id="questions-set1" class="card">
+          <p class="large-font">Which of the following is NOT an HTML tag?</p>
+          <button id="answer-a" class="answers-button">< section ></button>
+          <button id="answer-b" class="answers-button">< paragraph ></button>
+          <button id="answer-c" class="answers-button">< body ></button>
+          <button id="answer-d" class="answers-button">< template ></button>
+        </div>
+        <div id="questions-set2" class="card">
+          <p class="large-font">All of the following are common 3rd party API's EXCEPT?</p>
+          <button id="answer-e" class="answers-button2">Google Docs</button>
+          <button id="answer-f" class="answers-button2">Google Maps</button>
+          <button id="answer-g" class="answers-button2">Twitter</button>
+          <button id="answer-h" class="answers-button2">Facebook</button>
+        </div>
+        <div id="high-scores" class="card">
+          <p class="large-font">HIGH SCORES</p>
+            <ol id="scores-list">
+            </ol>
+        </div>
+      </section>      
+      <section>
+        <div class="card info">
+        <div class = "timer-container">
+        <div>
+        </div>
+        </div>
+        <div class= "card timer">
+          <div class = "timer-text">
+            <div class="large-font timer-count">20</div>
+              <h3>seconds remaining</h3>
+          </div>
+          <div>
+            <p id="correct" class="large-font">Correct!</p>
+            <p id="not-correct" class="large-font">Not Correct</p>
+          </div>
+          <button id="hide-next-button" class="next-button">Next Question</button>
+          <form id="form">
+            <label for="initials">Enter Your Initials:</label><br>
+            <input type="text" id="initials" name="initials"><br>
+          </form>
+          <button id="submit" class="next-button">S U B M I T</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./assets/js/script.js"></script>
     </body>
 </html>
 

@@ -54,7 +54,7 @@
     line-height: 50px;
   }
   
-  .win-loss-container {
+  .timer-container {
     display: flex;
     justify-content: center;
     margin-top: 16px;
@@ -155,7 +155,7 @@
     display: none;
   }
   
-  .results {
+  .info {
     width: 30vw;
     height: 700px;
   }
