@@ -83,7 +83,9 @@ var timerCount;
 var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
 var nextQuestionButton = document.querySelector(".next-button");
-var enterInitialsButton = document.querySelector("enter-initials");
+var submitButton = document.querySelector("#submit");
+// var initialsInput = document.querySelector("")
+
 
 // FUNCTION TO START THE QUIZ
 function startQuiz() {
@@ -150,11 +152,29 @@ function startTimer() {
 function stopTimer() {
   clearInterval(timer);
 }
+
+// FUNCTION TO SUBMIT INITIALS
+function submitInitials() {
+  var initials = document.querySelector("#initials").value;
+  console.log(initials);
+  localStorage.setItem("initials", initials);
+  document.getElementById("questions-set2").style.display = "none";
+  document.getElementById("high-scores").style.display = "block";
+  var score = timerCount*888;
+  var x = document.createElement("LI");
+  var t = document.createTextNode(initials + ":  " + score);
+  x.appendChild(t);
+  document.getElementById("scores-list").appendChild(x);
+}
+
 // Click event to start the quiz and run the function
 startButton.addEventListener("click", startQuiz);
 
 // Click event to proceed to the next question
 nextQuestionButton.addEventListener("click", nextQuestion);
+
+// Click event to submit player initials
+submitButton.addEventListener("click", submitInitials);
 
 // Events that happen when the user selects an answer by clicking a button
 answerA.addEventListener("click", function () {

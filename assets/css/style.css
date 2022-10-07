@@ -101,6 +101,20 @@
     border-radius: 8px;
   }
 
+  #scores-list {
+    color: #FA5B00;
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+  }
+
+  #high-scores {
+    display: none;
+    background-color: #000;
+    width: 55vw;
+    height: 700px;
+  }
+
   #form {
     display: none;
     color: #000;
