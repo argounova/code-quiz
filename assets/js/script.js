@@ -83,6 +83,7 @@ var timerCount;
 var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
 var nextQuestionButton = document.querySelector(".next-button");
+var enterInitialsButton = document.querySelector("enter-initials");
 
 // FUNCTION TO START THE QUIZ
 function startQuiz() {
@@ -122,7 +123,10 @@ function storeNextAnswer() {
     console.log(timerCount);
     timerElement.textContent = timerCount;
   }
-  document.getElementById("hide-next-button").style.display = "block";
+  stopTimer();
+  document.getElementById("hide-next-button").style.display = "none";
+  document.getElementById("form").style.display = "block";
+  document.getElementById("submit").style.display = "block";
 }
 // FUNCTION FOR WHEN THE NEXT QUESTION BUTTON IS CLICKED
 function nextQuestion() {
@@ -131,7 +135,7 @@ function nextQuestion() {
   document.getElementById("correct").style.display = "none";
   document.getElementById("not-correct").style.display = "none";
 }
-// TIMER FUNCTION
+// START TIMER 
 function startTimer() {
   timer = setInterval(function() {
     timerCount--;
@@ -141,6 +145,10 @@ function startTimer() {
       loseGame();
     }
   }, 1000);
+}
+// STOP TIMER
+function stopTimer() {
+  clearInterval(timer);
 }
 // Click event to start the quiz and run the function
 startButton.addEventListener("click", startQuiz);
@@ -217,13 +225,13 @@ answerD.addEventListener("click", function () {
   document.getElementById("answer-c").style.fontFamily = "serif";
   document.getElementById("answer-c").style.color = "#000";
 });
-//////////////////////////
 
 // Events that happen when the user selects an answer by clicking a button
   answerE.addEventListener("click", function () {
   selectedAnswer = answerE.textContent;
   localStorage.setItem("answer", selectedAnswer);
   storeNextAnswer();
+  // stopTimer();
   answerF.disabled = true;
   document.getElementById("answer-f").style.background = "#4d4d4d";
   document.getElementById("answer-f").style.fontFamily = "serif";
@@ -241,6 +249,7 @@ answerD.addEventListener("click", function () {
   selectedAnswer = answerF.textContent;
   localStorage.setItem("answer", selectedAnswer);
   storeNextAnswer();
+  // stopTimer();
   answerE.disabled = true;
   document.getElementById("answer-e").style.background = "#4d4d4d";
   document.getElementById("answer-e").style.fontFamily = "serif";
@@ -258,6 +267,7 @@ answerG.addEventListener("click", function () {
   selectedAnswer = answerG.textContent;
   localStorage.setItem("answer", selectedAnswer);
   storeNextAnswer();
+  // stopTimer();
   answerE.disabled = true;
   document.getElementById("answer-e").style.background = "#4d4d4d";
   document.getElementById("answer-e").style.fontFamily = "serif";
@@ -275,6 +285,7 @@ answerH.addEventListener("click", function () {
   selectedAnswer = answerH.textContent;
   localStorage.setItem("answer", selectedAnswer);
   storeNextAnswer();
+  // stopTimer();
   answerE.disabled = true;
   document.getElementById("answer-e").style.background = "#4d4d4d";
   document.getElementById("answer-e").style.fontFamily = "serif";
@@ -288,55 +299,3 @@ answerH.addEventListener("click", function () {
   document.getElementById("answer-g").style.fontFamily = "serif";
   document.getElementById("answer-g").style.color = "#000";
 });
-
-// // These functions are used by init
-// function getWins() {
-//   // Get stored value from client storage, if it exists
-//   var storedWins = localStorage.getItem("winCount");
-//   // If stored value doesn't exist, set counter to 0
-//   if (storedWins === null) {
-//     winCounter = 0;
-//   } else {
-//     // If a value is retrieved from client storage set the winCounter to that value
-//     winCounter = storedWins;
-//   }
-//   //Render win count to page
-//   win.textContent = winCounter;
-// }
-
-// // Attach event listener to document to listen for key event
-// document.addEventListener("keydown", function(event) {
-//   // If the count is zero, exit function
-//   if (timerCount === 0) {
-//     return;
-//   }
-//   // Convert all keys to lower case
-//   var key = event.key.toLowerCase();
-//   var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split("");
-//   // Test if key pushed is letter
-//   if (alphabetNumericCharacters.includes(key)) {
-//     var letterGuessed = event.key;
-//     checkLetters(letterGuessed)
-//     checkWin();
-//   }
-// });
-
-// Attach event listener to start button to call startGame function on click
-
-
-// Calls init() so that it fires when page opened
-// init();
-
-// // Bonus: Add reset button
-// var resetButton = document.querySelector(".reset-button");
-
-// function resetGame() {
-//   // Resets win and loss counts
-//   winCounter = 0;
-//   loseCounter = 0;
-//   // Renders win and loss counts and sets them into client storage
-//   setWins()
-//   setLosses()
-// }
-// // Attaches event listener to button
-// resetButton.addEventListener("click", resetGame);

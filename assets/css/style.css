@@ -84,7 +84,7 @@
     text-align: center;
     background: #4D4D4D;
     color: #fff;
-    border-bottom: 30px solid #000;
+    border-bottom: 30px solid #FA5B00;
   }
   
   main {
@@ -99,6 +99,16 @@
     margin-top: 50px;
     background-color: white;
     border-radius: 8px;
+  }
+
+  #form {
+    display: none;
+    color: #000;
+    font-size: 32px;
+  }
+
+  #submit {
+    display: none;
   }
 
   #correct {
